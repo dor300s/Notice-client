@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: sofia-pro-regular;
+    color: $clr2;
+}
+
+img {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: sofia-pro-semi-bold;
+    color: $clr1;
+}
+
+button {
+    font-family: sofia-pro-regular;
+}
+
+// h1 {
+//     font-size: rem(70px);
+// }

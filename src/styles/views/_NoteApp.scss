@@ -1,0 +1,59 @@
+.note-main-container {
+    .note-counter {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .note-list-container {
+        .note-list-wrapper {
+            max-width: fit-content;
+            -webkit-columns: 280px auto;
+            -moz-columns: 280px auto;
+            columns: 280px auto;
+            -webkit-column-gap: 20px;
+            -moz-column-gap: 20px;
+            column-gap: 20px;
+            .note {
+                border: 1px solid $clr4;
+                padding: 10px;
+                width: 100%;
+                margin-bottom: 20px;
+                border-radius: 6px;
+                display: inline-block;
+                .note-title {
+                    margin-bottom: 5px;
+                    color: darken($color: $clr2, $amount: 12);
+                }
+                .note-text {
+                    margin-bottom: 15px;
+                    font-weight: lighter;
+                }
+                .manage-buttons {
+                    > * {
+                        background-color: transparent;
+                        color: $clr2;
+                        border: 0;
+                        border-radius: 3px;
+                        padding: 2px 5px;
+                        margin-right: 10px;
+                        cursor: pointer;
+                        transition: 0.2s;
+                        outline: none;
+                        &.edit-button {
+                            &:hover {
+                                color: $clr6;
+                                background-color: $clr3;
+                            }
+                        }
+                        &.delete-button {
+                            &:hover {
+                                background-color: $eclr2;
+                                color: $clr6;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
