@@ -12,6 +12,9 @@ type NewNoteProps = {
 export const EditNote: React.FC<NewNoteProps> = ({ addNote, editNote, currNote }) => {
     const [note, setNote] = useState<Note>({ title: '', text: '' })
 
+
+
+
     useEffect(() => {
         if (currNote) setNote(currNote);
     }, [currNote])

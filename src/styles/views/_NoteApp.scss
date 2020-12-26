@@ -1,18 +1,23 @@
 .note-main-container {
     .note-counter {
-        text-align: center;
         margin: 20px 0;
+        text-align: center;
     }
 
     .note-list-container {
         .note-list-wrapper {
-            max-width: fit-content;
-            -webkit-columns: 280px auto;
-            -moz-columns: 280px auto;
-            columns: 280px auto;
-            -webkit-column-gap: 20px;
-            -moz-column-gap: 20px;
-            column-gap: 20px;
+            @include for-wide-layout {
+                max-width: fit-content;
+                -webkit-columns: 280px auto;
+                -moz-columns: 280px auto;
+                columns: 280px auto;
+                -webkit-column-gap: 20px;
+                -moz-column-gap: 20px;
+                column-gap: 20px;
+                display: block;
+            }
+            margin: 0 auto;
+            max-width: 95%;
             .note {
                 border: 1px solid $clr4;
                 padding: 10px;
