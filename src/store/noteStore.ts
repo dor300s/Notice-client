@@ -14,6 +14,7 @@ export class NoteStore {
     @action
     loadNotes = async () => {
         const notes = await getNotes();
+        notes.reverse();
         this.notes = notes;
     }
 
@@ -26,7 +27,7 @@ export class NoteStore {
     @action
     addNote = async (note: Note) => {
         const savedNote = await createNote(note);
-        this.notes.push(savedNote);
+        this.notes.unshift(savedNote);
     }
 
     @action
