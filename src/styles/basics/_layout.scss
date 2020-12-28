@@ -1,8 +1,8 @@
 .main-container {
-    margin-top: 30px;
+    padding: 20px;
     @include for-wide-layout {
         display: grid;
-        grid-template-columns: 80px 1fr 80px;
+        grid-template-columns: 1fr minmax(960px, 1920px) 1fr;
     }
 
     /*  @include for-narrow-layout {

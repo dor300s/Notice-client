@@ -1,8 +1,30 @@
 .note-main-container {
-    .note-counter {
-        margin: 20px 0;
-        text-align: center;
+    .header-wrapper {
+        margin-bottom: 20px;
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background-image: url(../../images/Notice_icon.png);
+            background-repeat: no-repeat;
+            background-size: 60px;
+            background-position: left;
+            margin-right: 20px;
+            transition: 0.2s;
+
+            @include for-wide-layout {
+                background-image: url(../../images/notice_logo.svg);
+                width: 150px;
+                background-size: 200px;
+                background-position: center;
+            }
+        }
     }
+
+    // .note-counter {
+    //     margin: 20px 0;
+    //     text-align: center;
+    // }
 
     .note-list-container {
         .note-list-wrapper {
@@ -18,7 +40,7 @@
             }
             transition: 1s;
             margin: 0 auto;
-            max-width: 95%;
+            // max-width: 95%;
             .note {
                 animation: note-anim 1s;
                 border: 1px solid $clr4;
@@ -38,6 +60,7 @@
                 .note-text {
                     margin-bottom: 20px;
                     font-weight: lighter;
+                    white-space: break-spaces;
                 }
                 .manage-buttons {
                     > * {
@@ -49,8 +72,8 @@
                         margin-right: 10px;
                         cursor: pointer;
                         transition: 0.2s;
-                        outline: none; 
-                        letter-spacing: .5px;
+                        outline: none;
+                        letter-spacing: 0.5px;
                         &.edit-button {
                             color: $eclr5;
                         }

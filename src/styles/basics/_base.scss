@@ -7,6 +7,25 @@
 html {
     font-family: sofia-pro-regular;
     color: $clr2;
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 }
 
 img {
@@ -26,14 +45,3 @@ h6 {
 button {
     font-family: sofia-pro-regular;
 }
-
-.fps{
-    position: relative;
-    top: 0;
-    left: 0;
-    margin-bottom: 20px;
-}
-
-// h1 {
-//     font-size: rem(70px);
-// }

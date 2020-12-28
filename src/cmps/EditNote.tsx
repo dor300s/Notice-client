@@ -9,6 +9,9 @@ type NewNoteProps = {
     currNote: NoteStore["currNote"]
 }
 
+let range: any = document.createRange();
+let sel: any = window.getSelection();
+
 export const EditNote: React.FC<NewNoteProps> = ({ addNote, editNote, currNote }) => {
     const [note, setNote] = useState<Note>({ title: '', text: '' })
     const [isFocused, setIsFocused] = useState(false);
@@ -61,18 +64,27 @@ export const EditNote: React.FC<NewNoteProps> = ({ addNote, editNote, currNote }
         if (e.keyCode === 13) {
             e.preventDefault();
             inputTextRef.current.focus();
-            console.log(inputTextRef.current.html);
-
-
         }
     }
 
+    const setCaret = () => {
+        const lastLine = inputTextRef.current.childNodes?.length;
+        if (lastLine) {
+            const textLength = inputTextRef.current.childNodes[lastLine - 1].length;
+            range.setStart(inputTextRef.current.childNodes[lastLine - 1], textLength);
+            range.collapse(true);
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+
+    }
+
     return (
-        <div className="add-note-container flex column align-center justify-center"  >
+        <div className="add-note-container flex column justify-center"  >
             <div className={`screen ${isFocused ? 'display' : ''}`} />
             <form ref={formRef} className={`flex column ${isFocused ? 'focused' : ''}`} onFocus={() => setIsFocused(true)} onSubmit={(e) => e.preventDefault()}>
-                <div contentEditable ref={inputTitleRef} className={`title-input ph-title ${note.title ? '' : 'empty'} ${isFocused ? 'focused' : ''}`} data-name="title" onInput={handleChange} onKeyDown={handleKeyDown} spellCheck="false" /* hidden={!isFocused && !note.title && !note.text} */ />
-                <div contentEditable ref={inputTextRef} className={`text-input ph-text ${note.text ? '' : 'empty'}`} data-name="text" onInput={handleChange} spellCheck="false" />
+                <div contentEditable ref={inputTitleRef} className={`title-input ${note.title ? '' : 'empty'} ${isFocused ? 'focused' : ''}`} data-name="title" onInput={handleChange} onKeyDown={handleKeyDown} spellCheck="false" /* hidden={!isFocused && !note.title && !note.text} */ />
+                <div contentEditable ref={inputTextRef} className={`text-input ${note.text ? '' : 'empty'}`} data-name="text" onInput={handleChange} spellCheck="false" onFocus={setCaret} />
             </form>
         </div>
     )
